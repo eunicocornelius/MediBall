@@ -4,6 +4,7 @@ import * as React from 'react';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
+import MediBallScreen from '../screens/MediBallScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -25,10 +26,18 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
+        name="MediBall"
+        component={MediBallScreen}
+        options={{
+          title: 'MediBall',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-apps" />,
+        }}
+      />
+      <BottomTab.Screen
         name="Links"
         component={LinksScreen}
         options={{
-          title: 'Resources',
+          title: 'More Links',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
         }}
       />
@@ -41,8 +50,10 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     case 'Home':
-      return 'How to get started';
+      return 'About Mediball';
     case 'Links':
-      return 'Links to learn more';
+      return 'More of my links';
+    case 'MediBall':
+      return 'Relax, Focus, and dont let go';
   }
 }

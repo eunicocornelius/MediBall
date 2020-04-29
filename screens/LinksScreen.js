@@ -9,20 +9,20 @@ export default function LinksScreen() {
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <OptionButton
         icon="md-school"
-        label="Read the Expo documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+        label="Creator's Expo"
+        onPress={() => WebBrowser.openBrowserAsync('https://expo.io/@eunico_cornelius')}
       />
 
       <OptionButton
         icon="md-compass"
-        label="Read the React Navigation documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
+        label="Creator's Github"
+        onPress={() => WebBrowser.openBrowserAsync('https://github.com/eunicocornelius ')}
       />
 
       <OptionButton
         icon="ios-chatboxes"
-        label="Ask a question on the forums"
-        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
+        label="Creator's LinkedIn"
+        onPress={() => WebBrowser.openBrowserAsync('https://www.linkedin.com/in/eunico-cornelius-0a262b151/')}
         isLastOption
       />
     </ScrollView>

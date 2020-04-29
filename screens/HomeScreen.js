@@ -9,8 +9,9 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        
         <View style={styles.welcomeContainer}>
-          <Image
+        <Image
             source={
               __DEV__
                 ? require('../assets/images/robot-dev.png')
@@ -18,36 +19,32 @@ export default function HomeScreen() {
             }
             style={styles.welcomeImage}
           />
+          <Text style={styles.title}>What is MediBall?</Text>
         </View>
-
+        <View style={styles.horizontalLine}></View>
         <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>Open up the code for this screen:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
-
-          <Text style={styles.getStartedText}>
-            Change any of the text, save the file, and your app will automatically reload.
-          </Text>
+          <Text style={styles.getStartedText}>MediBall is a minigame made to help people that are dealing with patience issues.</Text>
         </View>
 
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-          </TouchableOpacity>
+        <View style={styles.otherContainer}>
+          <Text style={styles.title}>How to play MediBall?</Text>
         </View>
+        <View style={styles.horizontalLine}></View>
+        <View style={styles.getStartedContainer}>
+          <Text style={styles.getStartedText}>All you need to do is press the MediBall bar on the navbar below and press the blue ball to start playing. Just press the ball, watch it grow, and hold without releasing it since it is a patience game. The timer will reset whenever you release the ball. Have fun :)</Text>
+        </View>
+
+        <View style={styles.otherContainer}>
+          <Text style={styles.title}>Why MediBall?</Text>
+        </View>
+        <View style={styles.horizontalLine}></View>
+        <View style={styles.getStartedContainer}>
+          <Text style={styles.getStartedText}>MediBall helps people with stress management and is currently testing and improving ways in order for people to feel more at ease.</Text>
+        </View>
+
+        
       </ScrollView>
 
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-        <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>navigation/BottomTabNavigator.js</MonoText>
-        </View>
-      </View>
     </View>
   );
 }
@@ -55,29 +52,6 @@ export default function HomeScreen() {
 HomeScreen.navigationOptions = {
   header: null,
 };
-
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use useful development
-        tools. {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
-  }
-}
 
 function handleLearnMorePress() {
   WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/workflow/development-mode/');
@@ -90,6 +64,17 @@ function handleHelpPress() {
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 20,
+    textAlign: 'left',
+  },
+  horizontalLine: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+    marginLeft: 50,
+    marginRight: 50,
+    marginBottom: 20,
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -106,14 +91,18 @@ const styles = StyleSheet.create({
   },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
     marginBottom: 20,
+  },
+  otherContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
+    marginTop: 60,
   },
   welcomeImage: {
     width: 100,
     height: 80,
     resizeMode: 'contain',
-    marginTop: 3,
+    marginBottom: 20,
     marginLeft: -10,
   },
   getStartedContainer: {
@@ -172,7 +161,7 @@ const styles = StyleSheet.create({
   helpLink: {
     paddingVertical: 15,
   },
-  helpLinkText: {
+  descriptionText: {
     fontSize: 14,
     color: '#2e78b7',
   },
